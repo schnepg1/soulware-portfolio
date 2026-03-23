@@ -1,115 +1,134 @@
 import { useState } from "react";
 import { Play, ArrowLeft, ArrowRight, X } from "lucide-react";
 
+const stats = [
+  { label: "Status", value: "Live" },
+  { label: "Type", value: "AI product" },
+  { label: "Video", value: "25 seconds" },
+  { label: "Next step", value: "Open the app" },
+];
+
 export default function Guidian() {
   const [showVideo, setShowVideo] = useState(false);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#0b1020] text-white">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.18),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.12),transparent_28%),linear-gradient(180deg,#0b1020_0%,#090d18_100%)]" />
-      <div className="absolute inset-0 -z-10 opacity-25 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:48px_48px]" />
+    <main className="relative min-h-screen overflow-hidden bg-[#fcfaf7] text-slate-900">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(194,65,12,0.1),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(101,163,13,0.07),transparent_30%),linear-gradient(180deg,#fcfaf7_0%,#f4efe7_100%)]" />
+      <div className="absolute inset-0 -z-10 opacity-60 bg-[linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-[size:48px_48px]" />
 
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-white/5 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#/" className="flex items-center gap-2 text-slate-200 transition-colors hover:text-white">
-            <ArrowLeft size={20} />
-            <span className="font-medium">Back to product hub</span>
+      <nav className="sticky top-0 z-50 border-b border-orange-900/8 bg-white/55 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <a
+            href="#/"
+            className="inline-flex items-center gap-2 rounded-full border border-orange-900/8 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-orange-700/20 hover:text-orange-700"
+          >
+            <ArrowLeft size={18} />
+            <span>Back to product hub</span>
           </a>
-          <div className="flex items-center gap-2 text-cyan-200">
-            <span className="text-xl font-bold">Guidian</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-lime-600/15 bg-lime-600/8 px-4 py-2 text-sm font-bold uppercase tracking-[0.24em] text-lime-700">
+            <span className="h-2 w-2 rounded-full bg-lime-600 shadow-[0_0_10px_rgba(101,163,13,0.4)]" />
+            Guidian
           </div>
         </div>
       </nav>
 
-      <section className="px-6 pb-12 pt-32">
-        <div className="mx-auto max-w-4xl text-center">
-          <span className="mb-6 inline-block rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-200">
-            Live product video
-          </span>
-          <h1 className="mb-6 bg-gradient-to-r from-white via-cyan-50 to-indigo-200 bg-clip-text text-4xl font-black text-transparent sm:text-6xl">
-            Guidian
-          </h1>
-          <p className="mx-auto max-w-2xl text-xl text-slate-300">
-            A proactive AI goal assistant that keeps momentum moving with timely nudges, short check-ins, and a clean path back to focus.
-          </p>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16">
-        <div className="mx-auto max-w-2xl">
-          {showVideo ? (
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl shadow-black/20 backdrop-blur-sm">
-              <button
-                onClick={() => setShowVideo(false)}
-                className="absolute right-4 top-4 z-10 rounded-full border border-white/10 bg-black/40 p-2 backdrop-blur-md transition-colors hover:bg-black/60"
-              >
-                <X size={20} />
-              </button>
-              <video
-                src="/videos/guidian-marketing.mp4"
-                controls
-                autoPlay
-                className="aspect-[9/16] w-full bg-black"
-              />
+      <section className="px-6 pb-24 pt-14 md:pt-20">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-700/10 bg-orange-700/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-orange-800">
+              <Play className="h-4 w-4" />
+              Live product video
             </div>
-          ) : (
-            <button
-              onClick={() => setShowVideo(true)}
-              className="group relative aspect-[9/16] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl shadow-black/20 backdrop-blur-sm transition-all hover:scale-[1.01] hover:border-white/20 hover:bg-white/8"
-            >
-              <img
-                src="/images/guidian-explainer-poster.jpg"
-                alt="Guidian launch video preview"
-                className="h-full w-full object-cover opacity-55 transition-opacity group-hover:opacity-40"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/20 transition-transform group-hover:scale-110">
-                  <Play size={40} className="ml-1 text-slate-950" fill="currentColor" />
+            <h1 className="mt-8 text-5xl font-black tracking-tight text-slate-900 sm:text-6xl lg:text-7xl">
+              Guidian
+            </h1>
+            <p className="mt-6 max-w-xl text-xl leading-8 text-slate-600">
+              A proactive AI goal assistant that keeps momentum moving with timely nudges, short check-ins, and a clean path back to focus.
+            </p>
+
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-[1.75rem] border border-slate-200 bg-white/65 p-5 shadow-[0_20px_45px_rgba(15,23,42,0.05)] backdrop-blur-lg"
+                >
+                  <div className="text-xs font-bold uppercase tracking-[0.24em] text-slate-400">{stat.label}</div>
+                  <div className="mt-3 text-lg font-black tracking-tight text-slate-900">{stat.value}</div>
                 </div>
+              ))}
+            </div>
+
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <button
+                onClick={() => setShowVideo(true)}
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white/70 px-8 py-4 font-black text-slate-700 shadow-[0_16px_40px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 hover:bg-white"
+              >
+                Watch launch video <ArrowRight size={20} />
+              </button>
+              <a
+                href="https://guidian.replit.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-orange-600 px-8 py-4 font-black text-white shadow-[0_18px_40px_rgba(194,65,12,0.22)] transition hover:-translate-y-0.5 hover:bg-orange-700"
+              >
+                Open Guidian <ArrowRight size={20} />
+              </a>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-orange-500/12 via-transparent to-lime-600/10 blur-2xl" />
+            {showVideo ? (
+              <div className="relative overflow-hidden rounded-[2.5rem] border border-white/80 bg-white/80 p-3 shadow-[0_40px_90px_rgba(15,23,42,0.12)] backdrop-blur-xl">
+                <button
+                  onClick={() => setShowVideo(false)}
+                  className="absolute right-7 top-7 z-10 rounded-full border border-black/10 bg-black/55 p-2 text-white backdrop-blur-md transition-colors hover:bg-black/70"
+                >
+                  <X size={20} />
+                </button>
+                <video
+                  src="/videos/guidian-marketing.mp4"
+                  controls
+                  autoPlay
+                  className="aspect-[9/16] w-full rounded-[2rem] bg-black object-cover"
+                />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent p-6">
-                <div className="text-3xl font-black text-white">GUIDIAN</div>
-                <div className="text-lg text-slate-200">AI Goal Assistant</div>
-              </div>
-            </button>
-          )}
+            ) : (
+              <button
+                onClick={() => setShowVideo(true)}
+                className="group relative w-full overflow-hidden rounded-[2.5rem] border border-white/80 bg-white/80 p-3 shadow-[0_40px_90px_rgba(15,23,42,0.12)] backdrop-blur-xl transition hover:-translate-y-1"
+              >
+                <div className="relative aspect-[9/16] overflow-hidden rounded-[2rem]">
+                  <img
+                    src="/images/guidian-explainer-poster.jpg"
+                    alt="Guidian launch video preview"
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.08),rgba(15,23,42,0.28))]" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white text-orange-700 shadow-[0_20px_50px_rgba(15,23,42,0.18)] transition group-hover:scale-110">
+                      <Play size={40} className="ml-1" fill="currentColor" />
+                    </div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent p-7 text-left">
+                    <div className="text-3xl font-black uppercase tracking-tight text-white">GUIDIAN</div>
+                    <div className="text-base font-medium text-white/90">AI Goal Assistant</div>
+                  </div>
+                </div>
+              </button>
+            )}
+          </div>
         </div>
       </section>
 
-      <section className="px-6 pb-20">
-        <div className="mx-auto max-w-2xl">
-          <div className="mb-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {[
-              { label: "Status", value: "Live" },
-              { label: "Type", value: "AI product" },
-              { label: "Video", value: "25 seconds" },
-              { label: "Next step", value: "Open the app" },
-            ].map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur-sm">
-                <div className="mb-1 text-sm text-slate-400">{stat.label}</div>
-                <div className="font-semibold text-white">{stat.value}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <button
-              onClick={() => setShowVideo(true)}
-              className="inline-flex items-center justify-center gap-2 rounded-2xl border border-cyan-400/20 bg-cyan-400/10 px-8 py-4 font-semibold text-cyan-100 backdrop-blur-sm transition hover:bg-cyan-400/15"
-            >
-              Watch launch video <ArrowRight size={20} />
-            </button>
-            <a
-              href="https://guidian.replit.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-cyan-400 px-8 py-4 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-300"
-            >
-              Open Guidian <ArrowRight size={20} />
-            </a>
-          </div>
+      <footer className="border-t border-slate-200 bg-white/40">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-10 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
+          <span className="font-bold uppercase tracking-[0.28em] text-slate-400">Guidian</span>
+          <a href="mailto:soulwaresolution@gmail.com" className="transition hover:text-orange-700">
+            soulwaresolution@gmail.com
+          </a>
         </div>
-      </section>
+      </footer>
     </main>
   );
 }
