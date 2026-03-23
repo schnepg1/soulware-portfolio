@@ -77,7 +77,7 @@ export default function Home() {
             Product hub
           </div>
           <h1 className="mt-8 text-5xl font-black tracking-tight text-slate-900 sm:text-6xl lg:text-8xl lg:leading-[0.95]">
-            Software that elevates your soul
+            Software that elevates your
             <span className="block text-orange-700">soul.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
