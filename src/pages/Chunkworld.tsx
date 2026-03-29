@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight, ExternalLink, PlayCircle, Sparkles } from "lucid
 const links = [
   {
     label: "Playable alpha state demo",
-    href: "https://chunk-world-602677800413.us-west1.run.app",
+    href: "https://iro-and-the-paralax-canvas-v2-602677800413.us-west1.run.app/",
     description: "Open the alpha build and try the interaction directly.",
     icon: PlayCircle,
     cta: "Play demo",

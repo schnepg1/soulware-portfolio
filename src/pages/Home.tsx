@@ -22,7 +22,7 @@ const products = [
     tags: ["Interactive", "Canvas", "Concept deck"],
     icon: Code2,
     primary: { label: "Open product page", href: "#/chunkworld" },
-    secondary: { label: "View alpha demo", href: "https://chunk-world-602677800413.us-west1.run.app" },
+    secondary: { label: "View alpha demo", href: "https://iro-and-the-paralax-canvas-v2-602677800413.us-west1.run.app/" },
   },
 ];
 
