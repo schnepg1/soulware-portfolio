@@ -50,9 +50,9 @@ async function fetchAll(): Promise<RepoCommit[]> {
       const url = `https://api.github.com/repos/${repo}/stats/commit_activity`;
       const res = await fetch(url, { headers: { Accept: "application/vnd.github.v3+json" } });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const json: { week: string; total: number }[][] = await res.json();
-      const last365 = json.slice(-365);
-      const dailyCounts = last365.map((w: { total: number }) => w.total);
+      const json: { week: string; total: number; days: number[] }[] = await res.json();
+      const last52 = json.slice(-52);
+      const dailyCounts = last52.flatMap((w) => w.days);
       results.push({ repo: repo.replace("schnepg1/", ""), color, dailyCounts });
     } catch {
       results.push({ repo: repo.replace("schnepg1/", ""), color, dailyCounts: new Array(365).fill(0) });
