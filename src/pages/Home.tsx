@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Bot, Code2, ExternalLink, Grid2x2, Mail, MessageCircle, PlayCircle, Sparkles, X } from "lucide-react";
+import GitHubActivity from "../components/GitHubActivity";
 
 const products = [
   {
@@ -191,6 +192,10 @@ export default function Home() {
             );
           })}
         </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-16">
+        <GitHubActivity />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24">
